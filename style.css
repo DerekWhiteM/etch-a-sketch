@@ -1,0 +1,16 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: inherit;
+}
+
+.container {
+    height: inherit;
+    display: grid;
+    grid-template-columns: repeat(16, 6.25fr);
+    grid-template-rows: repeat(16, 6.25fr);
+}
