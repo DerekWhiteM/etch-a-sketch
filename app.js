@@ -1,4 +1,5 @@
 function init() {
+
     const body = document.querySelector('body');
 
     const button = document.createElement('button');
@@ -8,14 +9,13 @@ function init() {
 
     createGrid(16);
 
-
     function createGrid(squaresPerSide) {
 
+        const grid = `repeat(${squaresPerSide}, ${100 / squaresPerSide}fr)`;
         const container = document.createElement('div');
         container.classList.add('container');
-        const gridStyle = `repeat(${squaresPerSide}, ${100 / squaresPerSide}fr)`;
-        container.style.gridTemplateColumns = gridStyle;
-        container.style.gridTemplateRows = gridStyle;
+        container.style.gridTemplateColumns = grid;
+        container.style.gridTemplateRows = grid;
 
         for (let i = 0; i < (squaresPerSide * squaresPerSide); i++) {
             const div = document.createElement('div');
