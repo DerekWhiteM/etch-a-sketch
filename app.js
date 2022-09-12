@@ -1,23 +1,46 @@
-function createGrid() {
-
+function init() {
     const body = document.querySelector('body');
 
-    const container = document.createElement('div');
-    container.classList.add('container');
+    const button = document.createElement('button');
+    button.textContent = "Change grid size";
+    button.addEventListener('click', handleButtonClick);
+    body.appendChild(button);
 
-    for (let i = 0; i < (256); i++) {
-        const div = document.createElement('div');
-        div.classList.add('item');
-        div.addEventListener('mouseenter', handleMouseEnter);
-        container.appendChild(div);
+    createGrid(16);
+
+
+    function createGrid(squaresPerSide) {
+
+        const container = document.createElement('div');
+        container.classList.add('container');
+        const gridStyle = `repeat(${squaresPerSide}, ${100 / squaresPerSide}fr)`;
+        container.style.gridTemplateColumns = gridStyle;
+        container.style.gridTemplateRows = gridStyle;
+
+        for (let i = 0; i < (squaresPerSide * squaresPerSide); i++) {
+            const div = document.createElement('div');
+            div.classList.add('item');
+            div.addEventListener('mouseenter', handleMouseEnter);
+            container.appendChild(div);
+        }
+
+        body.appendChild(container);
+
+        function handleMouseEnter(e) {
+            e.currentTarget.classList.add('marked');
+        }
+
     }
 
-    body.appendChild(container);
-
-    function handleMouseEnter(e) {
-        e.currentTarget.classList.add('marked');
+    function handleButtonClick() {
+        const input = Number(prompt('Enter number of squares per side for the grid:'));
+        if (input < 0) { return alert('Value cannot be less than 0') }
+        if (input > 100) { return alert('Value cannot be greater than 100') }
+        const container = document.querySelector('.container');
+        container.remove();
+        createGrid(input)
     }
 
 }
 
-createGrid();
+init();

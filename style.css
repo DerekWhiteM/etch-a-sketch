@@ -11,14 +11,17 @@ body {
 .container {
     height: inherit;
     display: grid;
-    grid-template-columns: repeat(16, 6.25fr);
-    grid-template-rows: repeat(16, 6.25fr);
-}
-
-.item {
-    z-index: 9999;
 }
 
 .marked {
     background-color: blueviolet;
+}
+
+button {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
