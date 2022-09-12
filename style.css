@@ -14,3 +14,11 @@ body {
     grid-template-columns: repeat(16, 6.25fr);
     grid-template-rows: repeat(16, 6.25fr);
 }
+
+.item {
+    z-index: 9999;
+}
+
+.marked {
+    background-color: blueviolet;
+}
